@@ -1,1 +1,1 @@
-ses 12
+[![Build Status](https://app.travis-ci.com/Batuhancaglar1041/myDemoApp.svg?token=M5z6FesRHCg5pRDadfRj&branch=master)](https://app.travis-ci.com/Batuhancaglar1041/myDemoApp)
