@@ -8,6 +8,7 @@
   <name>myDemoApp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -44,6 +45,7 @@
       <artifactId>log4j-slf4j-impl</artifactId>
       <version>2.10.0</version>
     </dependency>
+
 
   </dependencies>
   <properties>

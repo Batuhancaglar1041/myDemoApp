@@ -21,56 +21,64 @@ public class App
         get("/", (req, res) -> "Hello, World");
 
         post("/compute", (req, res) -> {
-            String inputArr1 = req.queryParams("inputParam1Arr");
-            java.util.Scanner sc1 = new java.util.Scanner(inputArr1);
-            sc1.useDelimiter("[;\r\n]+");
-            java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
-            while (sc1.hasNext()) {
-                int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
-                inputList.add(value);
-            }
+            //System.out.println(req.queryParams("input1"));
+            //System.out.println(req.queryParams("input2"));
 
-            String inputArr2 = req.queryParams("inputList2");
-            java.util.Scanner sc2 = new java.util.Scanner(inputArr2);
-            sc2.useDelimiter("[;\r\n]+");
+            String input1 = req.queryParams("input1");
+            java.util.Scanner sc1 = new java.util.Scanner(input1);
+            sc1.useDelimiter("[;\r\n]+");
+            java.util.ArrayList<Integer> inputList1 = new java.util.ArrayList<>();
+            while (sc1.hasNext())
+            {
+                int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+                inputList1.add(value);
+            }
+            System.out.println(inputList1);
+
+
+            String inputint1 = req.queryParams("input1").replaceAll("\\s","");
+            int input1AsInt = Integer.parseInt(inputint1);
+
+
+
+
+
+
+
+            String input2 = req.queryParams("input2");
+            java.util.Scanner sc2 = new java.util.Scanner(input2);
+            sc1.useDelimiter("[;\r\n]+");
             java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
-            while (sc2.hasNext()) {
+            while (sc2.hasNext())
+            {
                 int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
                 inputList2.add(value);
             }
+            System.out.println(inputList2);
 
-            int[] inputParam1Arr = new int[inputList.size()];
-            for (int i = 0; i < inputParam1Arr.length; i++) {
-                inputParam1Arr[i] = inputList.get(i);
-            }
 
-            String input2 = req.queryParams("input2AsInt").replaceAll("\\s","");
-            if (input2.equals("")) // is empty
-                input2 = "0"; // set to zero
-            int input2AsInt = Integer.parseInt(input2);
+            String inputint2 = req.queryParams("input2").replaceAll("\\s","");
+            int input2AsInt = Integer.parseInt(inputint1);
 
-            String inputBool = req.queryParams("valid").replaceAll("\\s","");
-            if (inputBool.equals("")) // is empty
-                inputBool = "0"; // set to zero
 
-            int inputBoolAsInt = Integer.parseInt(inputBool);
+            int result = App.customMethod(inputList1,inputList2,input1AsInt ,input2AsInt);
 
-            boolean valid = false;
-            if (inputBoolAsInt == 1) valid = true;
-
-            double result = calculateAverage(inputList, inputParam1Arr);
-
-            Map<String, Object> map = new HashMap<>();
+            Map map = new HashMap();
             map.put("result", result);
             return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
-        get("/compute", (rq, rs) -> {
-            Map<String, Object> map = new HashMap<>();
-            map.put("result", "not computed yet!");
-            return new ModelAndView(map, "compute.mustache");
-        }, new MustacheTemplateEngine());
+
+        get("/compute",
+                (rq, rs) -> {
+                    Map map = new HashMap();
+                    map.put("result", "not computed yet!");
+                    return new ModelAndView(map, "compute.mustache");
+                },
+                new MustacheTemplateEngine());
     }
+
+
 
 
     static int getHerokuAssignedPort() {
@@ -80,23 +88,14 @@ public class App
         }
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
-
-    public static float calculateAverage(ArrayList<Integer> list, int[] array) {
-        // Listeden ve diziden alınan sayıların ortalamasını hesaplar
-        int sumList = 0;
-        for (int num : list) {
-            sumList += num;
-        }
-
-        int sumArray = 0;
-        for (int num : array) {
-            sumArray += num;
-        }
-
-        float average =  ( (sumList + sumArray) / (list.size() + array.length));
-
-        return average;
+    public static int customMethod( ArrayList<Integer> list1, ArrayList<Integer> list2,int num1, int num2) {
+        // Örnek bir işlem yapalım, iki sayının toplamını ve iki liste arasındaki eleman sayılarının çarpımını döndürelim
+        int sum = num1 + num2;
+        int product = list1.size() * list2.size();
+        return sum * product;
     }
+
+
 
 
     }
