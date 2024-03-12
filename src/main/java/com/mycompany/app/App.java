@@ -81,7 +81,7 @@ public class App
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
 
-    public static double calculateAverage(ArrayList<Integer> list, int[] array) {
+    public static float calculateAverage(ArrayList<Integer> list, int[] array) {
         // Listeden ve diziden alınan sayıların ortalamasını hesaplar
         int sumList = 0;
         for (int num : list) {
@@ -93,7 +93,8 @@ public class App
             sumArray += num;
         }
 
-        double average =  (double) (sumList + sumArray) / (list.size() + array.length);
+        float average =  ( (sumList + sumArray) / (list.size() + array.length));
+
         return average;
     }
 
