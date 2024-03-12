@@ -97,7 +97,7 @@ public class App
         return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
     }
     public static int customMethod( ArrayList<Integer> list1, ArrayList<Integer> list2,int num1, int num2) {
-        // Örnek bir işlem yapalım, iki sayının toplamını ve iki liste arasındaki eleman sayılarının çarpımını döndürelim
+        // iki sayının toplamı İLe iki listenin boyutlarının çarpımının çarpımı
         int sum = num1 + num2;
         int product = list1.size() * list2.size();
         return sum * product;
