@@ -18,7 +18,7 @@ public class App
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
-        get("/", (req, res) -> "Hello, World");
+        get("/", (req, res) -> "Hellossss, Jumbosssss World");
 
         post("/compute", (req, res) -> {
             //System.out.println(req.queryParams("input1"));
@@ -58,13 +58,13 @@ public class App
 
 
             String inputint2 = req.queryParams("input2").replaceAll("\\s","");
-            int input2AsInt = Integer.parseInt(inputint1);
+            int input2AsInt = Integer.parseInt(inputint2);
 
 
             int result = App.customMethod(inputList1,inputList2,input1AsInt ,input2AsInt);
 
             Map map = new HashMap();
-            map.put("result", result);
+            map.put("ggggggggggggg", result);
             return new ModelAndView(map, "compute.mustache");
         }, new MustacheTemplateEngine());
 
