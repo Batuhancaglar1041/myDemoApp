@@ -1,13 +1,6 @@
 package com.mycompany.app;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import com.mycompany.app.AppTest;
-
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import static junit.framework.Assert.assertEquals;
+import junit.framework.TestCase;
 
 
 import java.util.ArrayList;
