@@ -36,8 +36,7 @@ public class App
             System.out.println(inputList1);
 
 
-            String inputint1 = req.queryParams("input1").replaceAll("\\s","");
-            int input1AsInt = Integer.parseInt(inputint1);
+
 
 
 
@@ -57,8 +56,17 @@ public class App
             System.out.println(inputList2);
 
 
+
+
+
+
+            String inputint1 = req.queryParams("input1").replaceAll("\\s","");
+            int input1AsInt = Integer.parseInt(inputint1);
+            System.out.println(input1AsInt);
+
             String inputint2 = req.queryParams("input2").replaceAll("\\s","");
             int input2AsInt = Integer.parseInt(inputint2);
+            System.out.println(input2AsInt) ;
 
 
             int result = App.customMethod(inputList1,inputList2,input1AsInt ,input2AsInt);
