@@ -18,13 +18,13 @@ public class App
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
 
-        get("/", (req, res) -> "Hellossss, Jumbosssss World");
+        get("/", (req, res) -> "Hello, Jumboss World");
 
         post("/compute", (req, res) -> {
             //System.out.println(req.queryParams("input1"));
             //System.out.println(req.queryParams("input2"));
 
-            String input1 = req.queryParams("input1");
+            String input1 = req.queryParams("inputlist1");
             java.util.Scanner sc1 = new java.util.Scanner(input1);
             sc1.useDelimiter("[;\r\n]+");
             java.util.ArrayList<Integer> inputList1 = new java.util.ArrayList<>();
@@ -45,7 +45,7 @@ public class App
 
 
 
-            String input2 = req.queryParams("input2");
+            String input2 = req.queryParams("inputlist2");
             java.util.Scanner sc2 = new java.util.Scanner(input2);
             sc1.useDelimiter("[;\r\n]+");
             java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
