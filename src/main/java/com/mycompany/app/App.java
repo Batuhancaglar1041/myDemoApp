@@ -70,7 +70,7 @@ public class App
 
 
             int result = App.customMethod(inputList1,inputList2,input1AsInt ,input2AsInt);
-
+            System.out.println(result);
             Map map = new HashMap();
             map.put("ggggggggggggg", result);
             return new ModelAndView(map, "compute.mustache");
